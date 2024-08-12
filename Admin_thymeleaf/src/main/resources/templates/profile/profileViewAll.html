@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{profile/profileNav.html}"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View All Profile</title>
+</head>
+<body>
+    <div layout:fragment="profile-content">
+        <div class="profile-view h-100 w-100 px-4 py-3">
+            <div class="profile-header-title w-100">
+                <h5>View All Profile</h5>
+            </div>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="text-center" scope="col">First Name</th>
+                        <th class="text-center" scope="col">Last Name</th>
+                        <th class="text-center" scope="col">User Role</th>
+                        <th class="text-center" scope="col">Gender</th>
+                        <th class="text-center" scope="col">Email</th>
+                        <th class="text-center" scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody th:each="userDto : ${userDtoList}">
+                    <tr>
+                        <td class="text-center" th:text="${userDto.firstName}"></td>
+                        <td class="text-center" th:text="${userDto.lastName}"></td>
+                        <td class="text-center text-info fw-bold" th:text="${userDto.role}"></td>
+                        <td class="text-center" th:text="${userDto.gender ? 'Female' : 'Male'}"></td>
+                        <td class="text-center" th:text="${userDto.email}"></td>
+                        <td class="d-flex justify-content-center gap-1 ">
+                            <a class="btn btn-primary btn-small d-flex justify-content-center align-items-center"
+                               role="button"
+                               th:href="@{/admin/v1/profile/modified-role(uuid=${userDto.uuid})}"
+                            ><i class="fa-regular fa-eye"></i></a>
+
+<!--                            <a class="btn btn-danger btn-small d-flex justify-content-center align-items-center"-->
+<!--                               role="button"-->
+<!--                               th:href="@{/admin/v1/profile/delete(uuid=${userDto.uuid})}"-->
+<!--                            ><i class="fa-solid fa-trash"></i></a>-->
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</body>
+</html>

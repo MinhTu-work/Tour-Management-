@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{management/managementNav.html}"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+    <meta charset="ISO-8859-1" />
+    <title>Report</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+    <!-- Optional theme -->
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" />
+
+</head>
+<body>
+<div layout:fragment="management-content">
+    <div class="management-view h-100 w-100 px-4 py-4 ">
+        <div class="management-header-title w-100">
+            <h5>Report</h5>
+        </div>
+
+        <div class="row " style="margin-top:10px; margin-bottom:10px">
+            <input id="enterMonth"  class="form-control" style="width:200px; margin-left:15px;"  placeholder="Enter Month">
+            <button type="button" id="searchBtn" class="btn btn-info" style="width:70px; margin-left:10px; height:30px;">Search</button>
+        </div>
+        <div  class="chart-outer" id="content">
+            <div class="container d-flex justify-content-center">
+                <div id="barChart-body"
+                     style="width: 750px; height: 400px;  ">
+                </div>
+            </div>
+
+        </div>
+        <div   class=" row d-flex justify-content-center" style="margin-top:45px;">
+            <div id="total1" hidden="hidden" class="total-tours column shadow rounded " style="width:150px; border-left:5px solid purple;
+                margin-right:40px" >
+                <div class="row start-0" style="margin-left: 5px; margin-top:5px">
+                    <h5 >Total Tourist</h5>
+                    <span th:text="${totalTourist}" class="count " id="totalTourist" style="font-size:18px;"></span>
+                </div>
+                <span class="icon end-0"><i class="fas fa-bus"></i></span>
+            </div>
+
+            <div id="total2" hidden="hidden" class="total-money column shadow rounded " style="width:150px; border-left:5px solid green;
+                margin-right:40px" >
+                <div class="row start-0" style="margin-left: 5px; margin-top:5px">
+                    <h5 >Total Money</h5>
+                    <span  th:text="${totalMoney}" class="count " id="totalMoney" style=" font-size:18px;"></span>
+                </div>
+                <span class="icon end-0"><i class="fa-solid fa-dollar-sign"></i></span>
+            </div>
+        </div>
+<!--        <form action="/admin/v1/management/exportExcel" method="GET">-->
+<!--            <button type="submit" id="exportExcel" class="btn btn-info end-0" style="width:70px; margin-left:10px; height:30px;">Excel</button>-->
+<!--        </form>-->
+
+
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Nav</title>
+</head>
+<body>
+
+<div layout:fragment="content">
+
+    <div class="h-100 d-flex gap-2">
+
+        <div class="nav-page d-flex flex-column p-4 gap-3 align-self-start">
+
+            <a class="nav-page-btn d-flex justify-content-between align-items-center"
+               th:classappend="${activeTab == 'orderCreate'} ? 'active'"
+               th:href="@{/admin/v1/order/create}">Create Order </a>
+
+            <a class="nav-page-btn d-flex justify-content-between align-items-center"
+               th:classappend="${activeTab == 'orderView'} ? 'active'"
+               th:href="@{/admin/v1/order/view-all-order}">View All Orders </a>
+
+            <a class="nav-page-btn d-flex justify-content-between align-items-center"
+               th:classappend="${activeTab == 'refundRequest'} ? 'active'"
+               th:href="@{/admin/v1/order/refund_request}">Refund Request </a>
+
+        </div>
+        <!-- this is a marker of layout:fragment="order-content" -->
+        <div class="main-content" layout:fragment="order-content">
+
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
+
+

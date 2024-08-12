@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{profile/profileNav.html}"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modified Role</title>
+</head>
+<body>
+<div layout:fragment="profile-content">
+    <div class="profile-view w-100 px-4 py-3">
+        <div class="profile-header-title w-100">
+            <h5>Modified Role</h5>
+        </div>
+
+        <form th:action=@{${PROFILE_MODIFIED_ROLE}}
+              method="post"
+              th:object="${modifiedRoleDTO}"
+              class="p-5">
+            <div class="w-100 d-flex justify-content-start px-5">
+                <div class="profile-item">
+                    <div class="mb-2">
+                        <label>First Name</label>
+                    </div>
+                    <div>
+                        <input class="profile-input bg-light"
+                               type="text"
+                               placeholder="First Name"
+                               th:field="${modifiedRoleDTO.firstName}"
+                               readonly
+                               disabled
+                        >
+                    </div>
+                </div>
+
+                <div class="profile-item">
+                    <div class="mb-2">
+                        <label>Last Name</label>
+                    </div>
+                    <div>
+                        <input class="profile-input bg-light"
+                               type="text"
+                               placeholder="Last Name"
+                               th:field="${modifiedRoleDTO.lastName}"
+                               readonly
+                               disabled
+                        >
+                    </div>
+                </div>
+
+            </div>
+            <div class="w-100 d-flex justify-content-start px-5">
+                <div class="profile-item">
+                    <div class="mb-2">
+                        <label>Email</label>
+                    </div>
+                    <div>
+                        <input class="profile-input bg-light"
+                               type="text"
+                               placeholder="Email"
+                               th:field="${modifiedRoleDTO.email}"
+                               readonly
+                               disabled
+                        >
+                    </div>
+                </div>
+
+                <div class="profile-item">
+                    <div class="mb-2">
+                        <label>Phone Number</label>
+                    </div>
+                    <div>
+                        <input class="profile-input bg-light"
+                               type="text"
+                               placeholder="Phone Number"
+                               th:field="${modifiedRoleDTO.phoneNumber}"
+                               readonly
+                               disabled
+                        >
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-100 d-flex justify-content-start px-5">
+
+                <div class="profile-item">
+                    <label class="mb-2">Gender</label>
+                    <div class="">
+                        <select class="form-select bg-light" th:field="${modifiedRoleDTO.gender}" disabled>
+                            <option selected value="false">Male</option>
+                            <option value="true">Female</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="profile-item">
+                    <label class="mb-2">Roles Type</label>
+                    <div class="">
+                        <select class="form-select bg-light" th:field="${modifiedRoleDTO.role}" disabled>
+                            <option selected value="">Choose Role</option>
+                            <option value="ADMIN">ADMIN</option>
+                            <option value="MANAGER">MANAGER</option>
+                            <option value="USER">USER</option>
+                        </select>
+                    </div>
+                    <p th:if="${#fields.hasErrors('role')}"
+                       th:errorclass="text-danger"
+                       th:errors="${modifiedRoleDTO.role}"
+                    ></p>
+                </div>
+            </div>
+
+            <div class="profile-submit-layout d-flex justify-content-end align-items-end gap-2 px-5">
+                <button type="submit" name="action" value="cancel" class="btn btn-outline-secondary">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

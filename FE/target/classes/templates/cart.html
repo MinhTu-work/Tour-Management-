@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layouts/index.html}">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div layout:fragment="content">
+  <section class="w3l-about-breadcrumb text-left">
+    <div class="breadcrumb-bg breadcrumb-bg-about py-sm-5 py-4">
+      <div class="container">
+        <h2 class="title">Cart </h2>
+        <ul class="breadcrumbs-custom-path mt-2">
+          <li><a href="index.html">Home</a></li>
+          <!-- <li><span class="fa fa-arrow-right mx-2" aria-hidden="true"></span>  <a href="services.html">Tours</a> </li> -->
+          <li class="active"><span class="fa fa-arrow-right mx-2" aria-hidden="true"></span> Cart </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <!-- //about breadcrumb -->
+
+  <section class="py-5">
+    <div class="container" th:each="cartItem : ${cartItems}">
+      <div class="row">
+        <div class="col-xl-8">
+          <div class="card border shadow-none">
+            <div class="card-body">
+
+              <div class="d-flex align-items-start border-bottom pb-3">
+                <div class="me-4" style="margin-right: 20px;">
+<!--                  <img th:src="@{/cart}" style="width: 150px; height: 150px;" alt="" class="avatar-lg rounded">-->
+                  <img src="https://cafefcdn.com/203337114487263232/2024/4/5/photo-6-1712224476290181986244-1712285684861-17122856851252026073236.jpg" style="width: 150px; height: 150px;" alt="" class="avatar-lg rounded">
+                </div>
+                <div class="flex-grow-1 align-self-center overflow-hidden">
+                  <div>
+                    <h5 class="text-truncate font-size-18"><a href="#" class="text-dark"  th:text="${cartItem.tour.tourName}">Julian Alps </a></h5>
+                    <p class="text-muted mb-0">
+                      <i class="bx bxs-star text-warning"></i>
+                      <i class="bx bxs-star text-warning"></i>
+                      <i class="bx bxs-star text-warning"></i>
+                      <i class="bx bxs-star text-warning"></i>
+                      <i class="bx bxs-star-half text-warning"></i>
+                    </p>
+                    <p class="mb-0 mt-1">Schedule : <span class="fw-medium" th:text="${cartItem.departureDay}"></span></p>
+                  </div>
+                </div>
+                <div class="flex-shrink-0 ms-2">
+                  <ul class="list-inline mb-0 font-size-16">
+                    <li class="list-inline-item">
+                      <a href="#" class="text-muted px-1">
+                        <i class="mdi mdi-trash-can-outline"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#" class="text-muted px-1">
+                        <i class="mdi mdi-heart-outline"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="mt-3">
+                      <p class="text-muted mb-2">Price</p>
+                      <h5 class="mb-0 mt-2" th:text="${cartItem.unitPrice}"></h5>
+                    </div>
+                  </div>
+                  <div class="col-md-5">
+                    <div class="mt-3">
+                      <p class="text-muted mb-2">Group Size</p>
+                      <div class="d-inline-flex">
+                        <span th:text="${cartItem.quantity}"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="mt-3">
+                      <p class="text-muted mb-2">Total</p>
+                      <h5 th:text="${cartItem.price}"></h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="row my-4" style="display: flex; justify-content: space-between; width: 100%;">
+<!--            <div class="">-->
+<!--              <a href="#" class="btn btn-link text-muted">-->
+<!--                <i class="mdi mdi-arrow-left me-1"></i> Continue Booking </a>-->
+<!--            </div> &lt;!&ndash; end col &ndash;&gt;-->
+            <div class="">
+              <a th:href="@{/admin/v1/tour}" class="btn btn-link text-muted">
+                <i class="mdi mdi-arrow-left me-1" ></i> Continue Booking </a>
+            </div> <!-- end col -->
+            <div class="">
+              <a  class="btn btn-success" href="/order">
+                <i class="mdi mdi-cart-outline me-1" ></i> Checkout </a>
+            </div> <!-- end col -->
+          </div> <!-- end row-->
+        </div>
+
+        <!--          <div class="col-xl-4">-->
+        <!--            <div class="mt-5 mt-lg-0">-->
+        <!--              <div class="card border shadow-none">-->
+        <!--                <div class="card-header bg-transparent border-bottom py-3 px-4">-->
+        <!--                  <h5 class="font-size-16 mb-0">Order Summary <span class="float-end">#MN0124</span></h5>-->
+        <!--                </div>-->
+        <!--                <div class="card-body p-4 pt-2">-->
+
+        <!--                  <div class="table-responsive">-->
+        <!--                    <table class="table mb-0">-->
+        <!--                      <tbody>-->
+        <!--                      <tr>-->
+        <!--                        <td>Sub Total :</td>-->
+        <!--                        <td class="text-end">$ 780</td>-->
+        <!--                      </tr>-->
+        <!--                      <tr>-->
+        <!--                        <td>Discount : </td>-->
+        <!--                        <td class="text-end">- $ 78</td>-->
+        <!--                      </tr>-->
+        <!--                      &lt;!&ndash; <tr>-->
+        <!--                          <td>Shipping Charge :</td>-->
+        <!--                          <td class="text-end">$ 25</td>-->
+        <!--                      </tr> &ndash;&gt;-->
+        <!--                      <tr>-->
+        <!--                        <td>Estimated Tax : </td>-->
+        <!--                        <td class="text-end">$ 18.20</td>-->
+        <!--                      </tr>-->
+        <!--                      <tr class="bg-light">-->
+        <!--                        <th>Total :</th>-->
+        <!--                        <td class="text-end">-->
+        <!--                                            <span class="fw-bold">-->
+        <!--                                                $ 745.2-->
+        <!--                                            </span>-->
+        <!--                        </td>-->
+        <!--                      </tr>-->
+        <!--                      </tbody>-->
+        <!--                    </table>-->
+        <!--                  </div>-->
+        <!--                  &lt;!&ndash; end table-responsive &ndash;&gt;-->
+        <!--                </div>-->
+        <!--              </div>-->
+        <!--            </div>-->
+        <!--          </div>-->
+      </div>
+    </div>
+  </section>
+</div>
+</body>
+</html>

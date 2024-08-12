@@ -1,0 +1,105 @@
+<div class="container"
+     xmlns:th="http://www.thymeleaf.org"
+>
+    <nav class="navbar navbar-expand-lg stroke">
+        <h1><a class="navbar-brand mr-lg-5" href="/home">
+            Traversal
+        </a></h1>
+
+        <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse"
+                data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+            <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+            </span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" th:href="@{/admin/v1/home}">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../tour.html" th:href="@{/admin/v1/tour}">Tours</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact">Contact</a>
+                </li>
+
+            </ul>
+        </div>
+        <div class="d-lg-block d-none" id="navbarTogglerDemo02">
+            <a  th:href="@{/admin/v1/login-customer}" class="btn btn-style btn-secondary">Log In / Sign Up</a>
+
+            <!--            <ul class="navbar-nav mr-auto">-->
+            <!--                <li class="nav-item">-->
+            <!--                    <a href="/cart" class="nav-link" style="position: relative;">-->
+            <!--                        <i class="fa fa-shopping-cart" aria-hidden="true" style="font-size: 20px;"></i>-->
+            <!--                        <span id="checkout_items" class="checkout_items"-->
+            <!--                              style="display: -webkit-box;-->
+            <!--                            display: -moz-box;-->
+            <!--                            display: -ms-flexbox;-->
+            <!--                            display: -webkit-flex;-->
+            <!--                            display: flex;-->
+            <!--                            flex-direction: column;-->
+            <!--                            justify-content: center;-->
+            <!--                            align-items: center;-->
+            <!--                            position: absolute;-->
+            <!--                            top: 15px;-->
+            <!--                            left: 20px;-->
+            <!--                            transform: translate(-50%, -50%);-->
+            <!--                            width: 15px;-->
+            <!--                            height: 15px;-->
+            <!--                            border-radius: 50%;-->
+            <!--                            background: #fe4c50;-->
+            <!--                            font-size: 12px;-->
+            <!--                            color: #FFFFFF;">2</span>-->
+            <!--                    </a>-->
+            <!--                </li>-->
+            <!--                <li style=" margin-left: 10px;"><a  class="nav-link"href="#"><i class="fa fa-bell" aria-hidden="true" style="font-size: 20px;"></i>-->
+            <!--                    <span id="checkout_items" class="checkout_items"-->
+            <!--                          style="display: -webkit-box;-->
+            <!--                            display: -moz-box;-->
+            <!--                            display: -ms-flexbox;-->
+            <!--                            display: -webkit-flex;-->
+            <!--                            display: flex;-->
+            <!--                            flex-direction: column;-->
+            <!--                            justify-content: center;-->
+            <!--                            align-items: center;-->
+            <!--                            position: absolute;-->
+            <!--                            top: 15px;-->
+            <!--                            left: 20px;-->
+            <!--                            transform: translate(-50%, -50%);-->
+            <!--                            width: 15px;-->
+            <!--                            height: 15px;-->
+            <!--                            border-radius: 50%;-->
+            <!--                            background: #fe4c50;-->
+            <!--                            font-size: 12px;-->
+            <!--                            color: #FFFFFF;">3</span>-->
+            <!--                </a>-->
+            <!--                </li>-->
+            <!--                <li style=" margin-left: 20px;"><a  class="nav-link"href="/profile"><i class="fa fa-user" aria-hidden="true" style="font-size: 20px;"></i></a></li>-->
+            <!--            </ul>-->
+
+        </div>
+        <!-- toggle switch for light and dark theme -->
+        <div class="mobile-position">
+            <nav class="navigation">
+                <div class="theme-switch-wrapper">
+                    <label class="theme-switch" for="checkbox">
+                        <input type="checkbox" id="checkbox">
+                        <div class="mode-container">
+                            <i class="gg-sun"></i>
+                            <i class="gg-moon"></i>
+                        </div>
+                    </label>
+                </div>
+            </nav>
+        </div>
+        <!-- //toggle switch for light and dark theme -->
+    </nav>
+</div>

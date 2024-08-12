@@ -1,0 +1,35 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+      database: mysql
+      database-platform: org.hibernate.dialect.MySQL8Dialect
+  liquibase:
+    change-log: classpath:/db.changelog/app-changelog.xml
+    default-schema: easytour
+  datasource:
+    url: jdbc:mysql://localhost:3306/easytour?createDatabaseIfNotExist=true
+    username: root
+    password:
+  devtools:
+    restart:
+      enabled: true
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: khai.nguyenanh03@gmail.com
+    password: kzjc ypor dlmd tjgh
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  data:
+    jpa:
+      repositories:
+        base-package: com.easy.tour.repository
